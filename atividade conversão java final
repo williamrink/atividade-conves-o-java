@@ -1,0 +1,102 @@
+
+package convers�odetemperaturaemoeda;
+import java.util.Scanner;
+
+public class Main {
+ @SuppressWarnings("empty-statement")
+    public static void main(String[] args) {
+ Scanner leia = new Scanner(System.in);
+        int opcaoTemperatura = 0, opcaoMoedas = 0, opcaoMenu = 0;
+        float tempCel, tempFah, cotacaoDolar, moedaReal, moedaDolar;
+        char opcao;
+
+        do {
+            System.out.println("Menu Inicial de Convers�o");
+            System.out.println("O que você quer fazer?");
+            System.out.println("1 - Converter Temperatura");
+            System.out.println("2 - Converter Moeda");
+            System.out.println("3 - Sair");
+            opcaoMenu = leia.nextInt();
+            System.out.print("\n");
+            switch (opcaoMenu) {
+
+                case 1: {
+                    System.out.println("Qual conversão você quer realizar?");
+                    System.out.println("1 - Converter de Celsius para Fahrenheit");
+                    System.out.println("2 - Converter de Fahrenheit para Celsius");
+                    System.out.println("3 - Voltar ao Menu");
+                    opcaoTemperatura = leia.nextInt();
+                    System.out.print("\n");
+                    switch (opcaoTemperatura) {
+                        case 1:
+                            System.out.println("Adicione a temperatura em Celsius que deseje ser convertida");
+                            tempCel = leia.nextFloat();
+                            tempFah = tempCel * 1.8f + 32;
+                            System.out.println(tempCel + "°C convertida para Fahrenheit é"
+                                    + " " + tempFah + "°F");
+                            System.out.print("\n");
+                            break;
+
+                        case 2:
+                            System.out.println("Adicione a temperatura em Fahrenheit que deseje ser convertida");
+                            tempFah = leia.nextFloat();
+                            tempCel = (tempFah - 32) / 1.8f;
+                            System.out.println(tempFah + "°F convertida para Celsius é"
+                                    + " " + tempCel + "°C");
+                            System.out.print("\n");
+                            break;
+                            case 3: 
+                            opcaoTemperatura = opcaoMenu;
+                            System.out.print("\n");
+                            break;
+                            
+                    }
+                    
+                }
+                break;
+
+                case 2: {
+                    System.out.println("Qual conversão você quer realizar?");
+                    System.out.println("1 - Converter de Reais para Dólar");
+                    System.out.println("2 - Converter de Dólar para Reais");
+                    System.out.println("3 - Voltar ao Menu");
+                    opcaoMoedas = leia.nextInt();
+                    System.out.print("\n");
+                    switch (opcaoMoedas) {
+                        case 1:
+                            System.out.println("Qual a cotação do Dólar atualmente?");
+                            cotacaoDolar = leia.nextFloat();
+                            System.out.println("Qual o valor em reais que você quer a conver��o?");
+                            moedaReal = leia.nextFloat();
+                            moedaDolar = moedaReal / cotacaoDolar;
+                            System.out.println("O valor convertido na cotação US$" + cotacaoDolar + ",de R$" + moedaReal + " fica US$ " + moedaDolar);
+                            System.out.print("\n");
+                            break;
+
+                        case 2:
+                            System.out.println("Qual a cotação do Dólar atualmente?");
+                            cotacaoDolar = leia.nextFloat();
+                            System.out.println("Qual o valor em Dólar que você que a  conver��o?");
+                            moedaDolar = leia.nextFloat();
+                            moedaReal = moedaDolar * cotacaoDolar;
+                            System.out.println("O valor convertido na cotação US$" + cotacaoDolar + ",de US$" + moedaDolar + " fica R$ " + moedaReal);
+                            System.out.print("\n");
+                            break;
+                            
+                        case 3: 
+                            opcaoTemperatura = opcaoMenu;
+                            System.out.print("\n");
+                            break;
+
+                    }break;
+                }
+                case 3: {
+                    System.exit(0);
+                    break;
+                }
+            } 
+
+        } while(opcaoMenu != 3);
+    }
+}
+    
